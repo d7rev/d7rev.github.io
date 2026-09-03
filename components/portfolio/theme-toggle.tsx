@@ -23,6 +23,16 @@ export function ThemeToggle() {
     }
   }, [])
 
+  useEffect(() => {
+    if (infoOpen) {
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = originalOverflow
+      }
+    }
+  }, [infoOpen])
+
   const applyTheme = (themeId: string) => {
     const root = document.documentElement
     root.classList.remove('theme-orange', 'theme-dark', 'theme-emerald', 'theme-wood')
@@ -74,7 +84,8 @@ export function ThemeToggle() {
       {/* Info Modal */}
       {infoOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          data-lenis-prevent
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm overscroll-contain"
           onClick={() => setInfoOpen(false)}
         >
           <div

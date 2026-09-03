@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import { FiX, FiPrinter, FiDownload, FiExternalLink } from 'react-icons/fi'
 import { profile, technicalSkills, projectsData, educationData } from '@/lib/portfolio-data'
 
@@ -10,6 +11,16 @@ export function ResumeModal({
   isOpen: boolean
   onClose: () => void
 }) {
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = originalOverflow
+      }
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
 
   const handlePrint = () => {
@@ -18,7 +29,8 @@ export function ResumeModal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-3 sm:p-6 backdrop-blur-md overflow-y-auto"
+      data-lenis-prevent
+      className="fixed inset-0 z-[100] flex items-start justify-center bg-black/80 p-3 sm:p-6 backdrop-blur-md overflow-y-auto overscroll-contain py-6 sm:py-10"
       onClick={onClose}
     >
       <div

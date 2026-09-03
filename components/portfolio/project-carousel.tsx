@@ -49,6 +49,17 @@ export function ProjectCarousel({
     return () => clearInterval(timer)
   }, [hasMultiple, isPaused, lightboxOpen, imageList.length])
 
+  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    if (lightboxOpen) {
+      const originalOverflow = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = originalOverflow
+      }
+    }
+  }, [lightboxOpen])
+
   const currentItem = imageList[currentIndex]
 
   return (
@@ -181,7 +192,8 @@ export function ProjectCarousel({
       {/* Fullscreen Lightbox Modal */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-[150] flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-lg"
+          data-lenis-prevent
+          className="fixed inset-0 z-[150] flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-lg overscroll-contain"
           onClick={() => setLightboxOpen(false)}
         >
           <div
