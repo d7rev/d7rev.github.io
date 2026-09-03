@@ -3,19 +3,19 @@
 import { useEffect, useState } from 'react'
 
 const themes = [
+  { id: 'emerald', name: 'Terminal Emerald', emoji: '🟢', iconBg: '#10b981' },
   { id: 'orange', name: 'Neon Orange', emoji: '🟠', iconBg: '#f97316' },
   { id: 'dark', name: 'Cyber Cyan', emoji: '🔷', iconBg: '#00f0ff' },
-  { id: 'emerald', name: 'Terminal Emerald', emoji: '🟢', iconBg: '#10b981' },
   { id: 'wood', name: 'Retro Amber', emoji: '🪵', iconBg: '#f59e0b' },
 ]
 
 export function ThemeToggle() {
-  const [currentTheme, setCurrentTheme] = useState('orange')
+  const [currentTheme, setCurrentTheme] = useState('emerald')
   const [infoOpen, setInfoOpen] = useState(false)
 
   useEffect(() => {
     try {
-      const saved = sessionStorage.getItem('theme') || 'orange'
+      const saved = sessionStorage.getItem('theme') || 'emerald'
       setCurrentTheme(saved)
       applyTheme(saved)
     } catch {

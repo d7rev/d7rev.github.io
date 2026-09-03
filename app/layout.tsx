@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} theme-orange`}
+      className={`${inter.variable} ${jetbrainsMono.variable} theme-emerald`}
       suppressHydrationWarning
     >
       <head>
@@ -56,11 +56,11 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  const savedTheme = sessionStorage.getItem('theme') || 'orange';
+                  const savedTheme = sessionStorage.getItem('theme') || 'emerald';
                   document.documentElement.classList.remove('theme-orange', 'theme-dark', 'theme-emerald', 'theme-wood');
                   document.documentElement.classList.add('theme-' + savedTheme);
                 } catch (e) {
-                  document.documentElement.classList.add('theme-orange');
+                  document.documentElement.classList.add('theme-emerald');
                 }
               })();
             `,
