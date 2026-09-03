@@ -7,6 +7,7 @@ import {
   FiLinkedin,
   FiMail,
   FiTwitter,
+  FiInstagram,
   FiSend,
   FiMapPin,
   FiCheck,
@@ -34,16 +35,22 @@ const contactChannels = [
     label: 'syed-saad-haider-03973130a',
   },
   {
-    name: 'WhatsApp',
-    href: profile.whatsapp,
-    icon: FaWhatsapp,
-    label: profile.phone,
+    name: 'Instagram',
+    href: profile.instagram,
+    icon: FiInstagram,
+    label: '@syedsaad_19',
   },
   {
     name: 'X (Twitter)',
     href: profile.twitter,
     icon: FiTwitter,
     label: '@Saad187939',
+  },
+  {
+    name: 'WhatsApp',
+    href: profile.whatsapp,
+    icon: FaWhatsapp,
+    label: profile.phone,
   },
 ]
 

@@ -7,6 +7,7 @@ import {
   FiLinkedin,
   FiMail,
   FiTwitter,
+  FiInstagram,
   FiArrowDown,
   FiFileText,
 } from 'react-icons/fi'
@@ -25,9 +26,14 @@ const socialLinks = [
     icon: FiLinkedin,
   },
   {
-    name: 'Email',
-    href: `mailto:${profile.email}`,
-    icon: FiMail,
+    name: 'Instagram',
+    href: profile.instagram,
+    icon: FiInstagram,
+  },
+  {
+    name: 'X (Twitter)',
+    href: profile.twitter,
+    icon: FiTwitter,
   },
   {
     name: 'WhatsApp',
@@ -35,9 +41,9 @@ const socialLinks = [
     icon: FaWhatsapp,
   },
   {
-    name: 'X (Twitter)',
-    href: profile.twitter,
-    icon: FiTwitter,
+    name: 'Email',
+    href: `mailto:${profile.email}`,
+    icon: FiMail,
   },
 ]
 
