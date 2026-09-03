@@ -118,15 +118,41 @@ export function ResumeModal({
                     <h3 className="font-semibold text-foreground text-xs flex items-center gap-2">
                       <span>{prj.title}</span>
                     </h3>
-                    <a
-                      href={prj.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-primary hover:underline text-[11px] font-mono shrink-0 flex items-center gap-1"
-                    >
-                      <span>GitHub</span>
-                      <FiExternalLink />
-                    </a>
+                    <div className="flex items-center gap-2.5 shrink-0">
+                      {prj.demos && prj.demos.length > 0 ? (
+                        prj.demos.map((d) => (
+                          <a
+                            key={d.url}
+                            href={d.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-primary hover:underline text-[11px] font-mono flex items-center gap-1"
+                          >
+                            <span>{d.label}</span>
+                            <FiExternalLink />
+                          </a>
+                        ))
+                      ) : prj.demo ? (
+                        <a
+                          href={prj.demo}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-primary hover:underline text-[11px] font-mono flex items-center gap-1"
+                        >
+                          <span>Demo</span>
+                          <FiExternalLink />
+                        </a>
+                      ) : null}
+                      <a
+                        href={prj.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-primary hover:underline text-[11px] font-mono flex items-center gap-1"
+                      >
+                        <span>GitHub</span>
+                        <FiExternalLink />
+                      </a>
+                    </div>
                   </div>
                   <ul className="list-disc list-inside space-y-1 text-muted-foreground text-xs leading-relaxed pl-1">
                     {prj.points.map((pt, idx) => (

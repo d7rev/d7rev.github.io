@@ -115,18 +115,31 @@ export function Projects() {
                     </div>
 
                     {/* Action Links */}
-                    <div className="flex items-center gap-3 shrink-0">
-                      {project.demo && (
+                    <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+                      {project.demos && project.demos.length > 0 ? (
+                        project.demos.map((d) => (
+                          <a
+                            key={d.url}
+                            href={d.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-xs font-mono font-medium text-primary-foreground hover:opacity-90 transition-all active:scale-95 shadow-sm"
+                          >
+                            <span>{d.label}</span>
+                            <FiExternalLink className="text-xs" />
+                          </a>
+                        ))
+                      ) : project.demo ? (
                         <a
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-mono font-medium text-primary-foreground hover:opacity-90 transition-all active:scale-95"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-mono font-medium text-primary-foreground hover:opacity-90 transition-all active:scale-95 shadow-sm"
                         >
                           <span>Live Demo</span>
                           <FiExternalLink className="text-xs" />
                         </a>
-                      )}
+                      ) : null}
                       <a
                         href={project.github}
                         target="_blank"

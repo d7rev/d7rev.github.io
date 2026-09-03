@@ -9,7 +9,7 @@ export const profile = {
   email: 'syedsaadhaider18@gmail.com',
   github: 'https://github.com/d7rev',
   linkedin: 'https://www.linkedin.com/in/syed-saad-haider-03973130a/',
-  twitter: 'https://x.com/d7rev',
+  twitter: 'https://x.com/Saad187939',
   instagram: 'https://www.instagram.com/syedsaad_19/',
   spotify: 'https://open.spotify.com/user/hqb0y8na0prjh0055so11j6x1?si=6c1e339328ad481d',
   summary:
@@ -116,6 +116,11 @@ export type ProjectImage = {
   label?: string
 }
 
+export type DemoLink = {
+  label: string
+  url: string
+}
+
 export type Project = {
   id: string
   title: string
@@ -127,6 +132,7 @@ export type Project = {
   tech: string[]
   github: string
   demo: string | null
+  demos?: DemoLink[]
   image: string
   images?: ProjectImage[]
 }
@@ -148,7 +154,11 @@ export const projectsData: Project[] = [
     ],
     tech: ['HTML5', 'CSS3', 'JavaScript', 'Firebase Cloud Firestore', 'Netlify', 'PWA'],
     github: 'https://github.com/d7rev',
-    demo: 'https://netlify.com',
+    demo: 'https://customer-001.netlify.app/',
+    demos: [
+      { label: 'Customer Demo', url: 'https://customer-001.netlify.app/' },
+      { label: 'Vendor Demo', url: 'https://vendor-001.netlify.app/' },
+    ],
     image: '/projects/vit-canteen.png',
     images: [
       {

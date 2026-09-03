@@ -39,6 +39,12 @@ const contactChannels = [
     icon: FaWhatsapp,
     label: profile.phone,
   },
+  {
+    name: 'X (Twitter)',
+    href: profile.twitter,
+    icon: FiTwitter,
+    label: '@Saad187939',
+  },
 ]
 
 export function Contact() {
