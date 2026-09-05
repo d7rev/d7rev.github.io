@@ -193,7 +193,13 @@ export const projectsData: Project[] = [
     tech: ['Python', 'PyTorch', 'Scikit-learn', 'LangChain', 'Ollama (Llama 3)', 'NLP'],
     github: 'https://github.com/d7rev',
     demo: null,
-    image: '/placeholder.jpg',
+    image: '/projects/indian-judicial-assistant.jpg',
+    images: [
+      {
+        url: '/projects/indian-judicial-assistant.jpg',
+        label: 'Statutory Judgment Prediction & Neural Legal Intelligence Engine',
+      },
+    ],
   },
   {
     id: 'PRJ-03',
